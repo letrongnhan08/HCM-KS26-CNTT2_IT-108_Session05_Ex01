@@ -1,14 +1,14 @@
 ﻿Phần 1: Phân tích
-Chạy không được vì mắc 2 lỗi :
+lỗi của Nam :
 Lỗi thứ nhất: tên thư mục có khoảng trắng
-Lỗi thứ hai: mkdir chưa tìm đc src của thư mục vì src không tồn tại
+Lỗi thứ hai: mkdir chưa tìm được src của thư mục vì src có thể không tồn tại
 
-sửa lỗi  : 
-mkdir Smart-Farm-Project
-cd Smart-Farm-Project
-mkdir src/sensors/temperature -force
+Nguyên nhân lỗi trong PowerShell:
+-về dấu ngoặc kép : khi các từ cách nhau có khoảng trắng mà sử dụng dấu (""), PowerShell chỉ hiểu đó là tham số độc lập thay vì chuỗi văn bản
+-còn lệnh cd thì cũng như trên: nếu có khoảng trắng thì cần ("") để PowerShell hiểu còn không có thì lệnh sẽ bị lỗi không chạy được.
+-Thiếu thư mục ngữ cảnh do Nam không tạo các thư mục src/sensors/temperature nên sẽ ra Path not found
 
 
-Phần 2: Hoàn thiện
+Phần 2: Hoàn thiện:
 Chuỗi lệnh ít dòng nhất: 
 mkdir "Smart-Farm-Project/src/sensors/temperature"
